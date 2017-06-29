@@ -1,0 +1,19 @@
+<html>
+<body>
+{% if last_link %}
+<p>Congratulations! You've just shortened your link to <b>{{ last_link }}</b></p>
+{% elif invalid_link %}
+<p>The link you provided <b>{{ invalid_link }}</b> is invalid...<p>
+{% else %}
+<h3>Hello there!</h3> 
+{% endif %}
+
+Paste a link to shorten it...
+
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ urlform }}
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
